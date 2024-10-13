@@ -38,11 +38,12 @@ social:
   email:  # change to your email address
   links:
     # The first element serves as the copyright owner's link
+    - https://www.linkedin.com/in/coleman-g-64b90b1b7/
     - https://app.hackthebox.com/users/498895 
     - https://github.com/gipsoncoa 
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/coleman-g-64b90b1b7/
+    
 
 # Site Verification Settings
 webmaster_verifications:
@@ -98,7 +99,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://media.licdn.com/dms/image/v2/D4E03AQGsBnpeMnuGlQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1707966467065?e=1734566400&v=beta&t=YAkYCo6nS-bWDgbIk1HuDpboY2kNZDur1KjxnsAqiP0
+avatar: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpng.pngtree.com%2Fpng-clipart%2F20200727%2Foriginal%2Fpngtree-tree-oak-logo-design-icon-vector-png-image_5286652.jpg&f=1&nofb=1&ipt=6505bea1193122950fbbba828a880b0202f651dcb71734313e82473448fee48d&ipo=images
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
