@@ -1,5 +1,12 @@
 ---
 title: Boardlight - Hack the Box
+date: 2024-10-13 12:29:11 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/Boardlight.png
+---
+---
+title: Boardlight - Hack the Box
 date: 2024-10-13 12:07:03 -0400
 categories: [Hack the Box]
 tags: [Walkthrough]

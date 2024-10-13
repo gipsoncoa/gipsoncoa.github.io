@@ -1,5 +1,12 @@
 ---
 title: Valentine - Hack the Box
+date: 2024-10-13 12:29:12 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/Valentine.png
+---
+---
+title: Valentine - Hack the Box
 date: 2024-10-13 12:07:03 -0400
 categories: [Hack the Box]
 tags: [Walkthrough]

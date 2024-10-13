@@ -1,4 +1,11 @@
 ---
+title: SwagShop - Hack the Box
+date: 2024-10-13 12:29:12 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/SwagShop.png
+---
+---
 title: SwagShop_(I) - Hack the Box
 date: 2024-10-13 12:07:03 -0400
 categories: [Hack the Box]

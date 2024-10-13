@@ -1,4 +1,11 @@
 ---
+title: Editorial - Hack the Box
+date: 2024-10-13 12:29:11 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/Editorial.png
+---
+---
 title: Editorial_(I) - Hack the Box
 date: 2024-10-13 12:07:03 -0400
 categories: [Hack the Box]
