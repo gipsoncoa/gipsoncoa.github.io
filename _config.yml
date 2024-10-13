@@ -14,12 +14,12 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: li0t # the main title
+title: Coleman Gipson # the main title
 
-tagline: Security # it will display as the subtitle
+tagline: Hacking as an art form. # it will display as the subtitle
 
-description: >- # used by seo meta and the atom feed
-  Write-ups.
+description: Hacking as an art form. # used by seo meta and the atom feed
+  
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -29,20 +29,20 @@ github:
   username: gipsoncoa # change to your GitHub username
 
 twitter:
-  username: li0t # change to your Twitter username
+  username: # change to your Twitter username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Coleman Gipson
-  email: example@domain.com # change to your email address
+  email:  # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
+    - https://app.hackthebox.com/users/498895 
+    - https://github.com/gipsoncoa 
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/coleman-g-64b90b1b7/
 
 # Site Verification Settings
 webmaster_verifications:
@@ -98,7 +98,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: https://media.licdn.com/dms/image/v2/D4E03AQGsBnpeMnuGlQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1707966467065?e=1734566400&v=beta&t=YAkYCo6nS-bWDgbIk1HuDpboY2kNZDur1KjxnsAqiP0
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
