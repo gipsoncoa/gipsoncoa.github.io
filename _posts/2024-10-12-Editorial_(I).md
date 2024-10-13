@@ -1,3 +1,17 @@
+---
+title: Editorial_(I) - Hack the Box
+date: 2024-10-13 12:07:03 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/Editorial_(I).png
+---
+---
+title: 2024-10-12-Editorial_(I) - Hack the Box
+date: 2024-10-13 12:01:04 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/2024-10-12-Editorial_(I).png
+---
 ### Scan
 ```
 ┌──(root㉿kali)-[/home/li0t/Desktop/HTB/Editorial]
@@ -23,4 +37,3 @@ Nmap done: 1 IP address (1 host up) scanned in 52.83 seconds
 Ferox ![Image](/assets/Screenshot 2024-10-05 at 10.31.50 AM.png)
 
 tiempo arriba domain![Image](/assets/Screenshot 2024-09-13 at 6.31.36 PM.png)
-

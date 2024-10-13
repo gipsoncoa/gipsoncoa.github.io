@@ -1,3 +1,17 @@
+---
+title: Sightless - Hack the Box
+date: 2024-10-13 12:07:03 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/Sightless.png
+---
+---
+title: 2024-10-12-Sightless - Hack the Box
+date: 2024-10-13 12:01:04 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/2024-10-12-Sightless.png
+---
 ### Scan
 ```
 └─$ nmap -sV -sC -p- --open 10.10.11.32
@@ -22,10 +36,13 @@ PORT   STATE SERVICE VERSION
 |_http-server-header: nginx/1.18.0 (Ubuntu)
 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
 SF-Port21-TCP:V=7.94SVN%I=7%D=10/9%Time=6706D0C3%P=aarch64-unknown-linux-g
-SF:nu%r(GenericLines,A0,"220\x20ProFTPD\x20Server\x20\(sightless\.htb\x20F
-SF:TP\x20Server\)\x20\[::ffff:10\.10\.11\.32\]\r\n500\x20Invalid\x20comman
-SF:d:\x20try\x20being\x20more\x20creative\r\n500\x20Invalid\x20command:\x2
-SF:0try\x20being\x20more\x20creative\r\n");
+SF:nu%r(GenericLines,A0,"220 ProFTPD Server \(sightless\.htb F
+SF:TP Server\) \[::ffff:10\.10\.11\.32\]
+500 Invalid comman
+SF:d: try being more creative
+500 Invalid command:
+SF:0try being more creative
+");
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
@@ -67,4 +84,3 @@ check to see if there, then update perms same way
 `chmod 644 /tmp/root.txt`
 fuck this box omm
 ROOT:859ac83ce4810139ed542f1d23aee710
-

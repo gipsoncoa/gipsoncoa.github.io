@@ -1,3 +1,17 @@
+---
+title: SwagShop_(I) - Hack the Box
+date: 2024-10-13 12:07:03 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/SwagShop_(I).png
+---
+---
+title: 2024-10-12-SwagShop_(I) - Hack the Box
+date: 2024-10-13 12:01:04 -0400
+categories: [Hack the Box]
+tags: [Walkthrough]
+image: /assets/2024-10-12-SwagShop_(I).png
+---
 #unfinished #linux #manual 
 ### Scan
 ```
