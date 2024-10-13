@@ -20,7 +20,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 52.83 seconds
 ```
 ### Enum
-Ferox ![[Screenshot 2024-10-05 at 10.31.50 AM.png]]
+Ferox ![Image](/assets/Screenshot 2024-10-05 at 10.31.50 AM.png)
 
-tiempo arriba domain![[Screenshot 2024-09-13 at 6.31.36 PM.png]]
+tiempo arriba domain![Image](/assets/Screenshot 2024-09-13 at 6.31.36 PM.png)
 

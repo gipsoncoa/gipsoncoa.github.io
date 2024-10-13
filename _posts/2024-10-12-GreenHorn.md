@@ -105,7 +105,7 @@ python3 depix.py \
 -o ooo.png
 
 ```
-password![[Screenshot 2024-10-08 at 10.28.35 PM.png]] `sidefromsidetheothersidesidefromsidetheotherside`
+password![Image](/assets/Screenshot 2024-10-08 at 10.28.35 PM.png) `sidefromsidetheothersidesidefromsidetheotherside`
 ssh into box
 FINALLY ROOT FLAG FYCK
 Root:0a6a92e75ef9baf2da20d2cd8a8e1e68

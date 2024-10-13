@@ -21,17 +21,17 @@ Nmap done: 1 IP address (1 host up) scanned in 62.78 seconds
 ```
 ### Enumeration
 
-ferox![[Screenshot 2024-09-11 at 5.29.10 PM.png]]
-admin panel![[Screenshot 2024-09-11 at 5.27.01 PM.png]]
-local xml![[Screenshot 2024-09-11 at 5.09.24 PM.png]]
-predates version2![[Screenshot 2024-09-11 at 5.13.42 PM.png]]
-pyscript![[Screenshot 2024-09-11 at 5.25.28 PM.png]]
+ferox![Image](/assets/Screenshot 2024-09-11 at 5.29.10 PM.png)
+admin panel![Image](/assets/Screenshot 2024-09-11 at 5.27.01 PM.png)
+local xml![Image](/assets/Screenshot 2024-09-11 at 5.09.24 PM.png)
+predates version2![Image](/assets/Screenshot 2024-09-11 at 5.13.42 PM.png)
+pyscript![Image](/assets/Screenshot 2024-09-11 at 5.25.28 PM.png)
 No auth, keep going
 try original searchsploit (37977.py)
 doctor script to fit needs, really interesting exploit to break down in here wahts going on. forme and forme and all
-admin panel![[Screenshot 2024-09-11 at 5.47.56 PM.png]]
+admin panel![Image](/assets/Screenshot 2024-09-11 at 5.47.56 PM.png)
 Go back to original rce script now that youve got creds (forme forme)
-RCE ![[Screenshot 2024-09-11 at 5.54.12 PM.png]]
+RCE ![Image](/assets/Screenshot 2024-09-11 at 5.54.12 PM.png)
 
 
 

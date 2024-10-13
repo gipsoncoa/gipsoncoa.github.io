@@ -52,9 +52,9 @@ visit `http://127.0.0.1:8080`, were met with a froxlor login
 install brave >:( and go to `brave://inspect/#devices` . run netstat again and forward every port => 3 digits.
 3306, 8080, 44905, 44603, 33060, 3000, 37761. create instances for all of these in brave until the froxlor appears
 then, inspect, go to network tab, and probe index php and wait for the login. it'll be under payload. what the fuck
-![[Screenshot 2024-10-09 at 4.45.19 PM (2).png]]
+![Image](/assets/Screenshot 2024-10-09 at 4.45.19 PM (2).png)
 `ForlorfroxAdmin`
-we're in ![[Screenshot 2024-10-09 at 4.47.43 PM.png]]
+we're in ![Image](/assets/Screenshot 2024-10-09 at 4.47.43 PM.png)
 We can see a php configuration that allows command injection. lets copy rt flag to tmp dir. you could also copy root rsa to tmp dir and ssh in that way. ill do the latter.
 create new php version under fpm versions.
 put this command in `cp /root/.ssh/id_rsa /tmp/id_rsa`

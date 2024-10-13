@@ -1,4 +1,4 @@
-![[Valentine.png]]
+![Image](/assets/Valentine.png)
 ### Scan
 ```
 └─# nmap -sV -sC --open -p- 10.10.10.79 
@@ -32,19 +32,19 @@ From our scan, we can see openings on ports `22, 80, 443`.  This looks like we'l
 
 ### Enumeration
 
-![[Screenshot 2024-09-11 at 11.05.09 AM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 11.05.09 AM.png)
 
 Entering the website, we get a pretty big hint with the landing page above - it takes a very trained eye. Heartbleed is an early SSL vulnerability that hemorrhages sensitive information through incorrect memory handling of the heartbeat expansion. We can abuse this to leak information like keys, credentials, and server system information. (Though I didn't know any of this yet.)
 
 Using `feroxbuster`, we can uncover some directories from the server, and I also had `ffuf` in another window hunting subdomains. 
 
- ![[Screenshot 2024-09-11 at 11.07.29 AM.png]]
+ ![Image](/assets/Screenshot 2024-09-11 at 11.07.29 AM.png)
 
 As I've talked about before, the `/dev/` directory is almost always home to some juicy information. Here, we can extract a todo list from a developer, and a hex-coded key. We can also see and `encode.php` and `decode.php` function that was mentioned in the todo list.  We'll keep note of this for the key.
 
-![[Screenshot 2024-09-11 at 11.04.40 AM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 11.04.40 AM.png)
 
-![[Screenshot 2024-09-11 at 11.09.45 AM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 11.09.45 AM.png)
 
 When we do decode the message, we're left with a Private RSA key, and I assume by the title of the file, it belongs to the user `hype`. As a disclaimer, though, be wary of decrypting sensitive files and such online, as you don't know who or what is logging them in the backend. Take the key and save it to a file `rsaprivate.txt`.
 
@@ -86,21 +86,21 @@ We can throw things at the wall and see what sticks, so with the `feroxbuster` a
 
 `nmap --script vuln 10.10.10.79`
 
-![[Screenshot 2024-09-11 at 11.24.04 AM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 11.24.04 AM.png)
 
 There's our heartbleed confirmation. We can crawl google and find a `git` repository for this exact purpose and clone it onto our machine. 
 
  `git clone https://gist.github.com/10174134.git`
 
-![[Screenshot 2024-09-11 at 11.27.49 AM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 11.27.49 AM.png)
 
 When we run, we get some more valuable information, including an encoded string. We can go back to the exposed tool within the website and try our luck.
 
-![[Screenshot 2024-09-11 at 11.28.57 AM.png]] 
+![Image](/assets/Screenshot 2024-09-11 at 11.28.57 AM.png) 
 
 Believe the hype. Now with a password, we can try to login again, and use the password as the RSA_Key password. NOT the user's password (It won't work)
 
- ![[Screenshot 2024-09-11 at 11.31.31 AM.png]]
+ ![Image](/assets/Screenshot 2024-09-11 at 11.31.31 AM.png)
 
 The user flag resides in the directory that we've spawned in, and we can take it for our notes.
 
@@ -114,11 +114,11 @@ Next, we can server `LinPeas.sh` through our `python` server, using our favorite
 
 Combing through our results, a very strong opportunity for privesc lies with Tmux, as seen below.
 
-![[Screenshot 2024-09-11 at 11.41.59 AM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 11.41.59 AM.png)
 
 Tmux is a terminal multiplexer; it allows you to create several "pseudo terminals" from a single terminal. This is very useful for running multiple programs with a single connection, such as when you're remotely connecting to a machine using SSH. There's a session running as `root`, and we can easily join the session with `tmux -S ./dev/dev_sess`
 
-![[Screenshot 2024-09-11 at 11.49.25 AM.png]]
+![Image](/assets/Screenshot 2024-09-11 at 11.49.25 AM.png)
 
 Now we've got access to our flag for our notes.
 

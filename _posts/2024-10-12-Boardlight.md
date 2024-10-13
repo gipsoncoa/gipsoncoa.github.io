@@ -25,21 +25,21 @@ Nmap done: 1 IP address (1 host up) scanned in 54.91 seconds
 
 ###
 - Wordpress sight (maybe)
-- site version ![[Screenshot 2024-09-08 at 7.17.32 AM.png]]
-- fuzzing (go into det about how got here)![[Screenshot 2024-09-08 at 7.57.57 AM.png]]
-- ![[Screenshot 2024-09-08 at 7.59.18 AM.png]]
-- Dolibarr 17.0.0 CVE![[Screenshot 2024-09-08 at 8.01.15 AM.png]]
+- site version ![Image](/assets/Screenshot 2024-09-08 at 7.17.32 AM.png)
+- fuzzing (go into det about how got here)![Image](/assets/Screenshot 2024-09-08 at 7.57.57 AM.png)
+- ![Image](/assets/Screenshot 2024-09-08 at 7.59.18 AM.png)
+- Dolibarr 17.0.0 CVE![Image](/assets/Screenshot 2024-09-08 at 8.01.15 AM.png)
 - looks like PHP code injection
-- info![[Screenshot 2024-09-08 at 8.06.21 AM.png]]
+- info![Image](/assets/Screenshot 2024-09-08 at 8.06.21 AM.png)
 - github python remote shell
 - shell connect and stabilize (wlrap too)
-- creds in conf file![[Screenshot 2024-09-08 at 8.58.48 AM.png]]
-- ![[Screenshot 2024-09-08 at 8.46.47 AM.png]]
-- umm completely hidden home dir with user![[Screenshot 2024-09-08 at 8.57.37 AM.png]]
-- larissa ssh w creds ![[Screenshot 2024-09-08 at 9.00.32 AM.png]]
+- creds in conf file![Image](/assets/Screenshot 2024-09-08 at 8.58.48 AM.png)
+- ![Image](/assets/Screenshot 2024-09-08 at 8.46.47 AM.png)
+- umm completely hidden home dir with user![Image](/assets/Screenshot 2024-09-08 at 8.57.37 AM.png)
+- larissa ssh w creds ![Image](/assets/Screenshot 2024-09-08 at 9.00.32 AM.png)
 - cat user : 93bc590302d174c7046be6b70f8ce1b5
-- py server to host exploit![[Screenshot 2024-09-08 at 9.17.08 AM.png]]
-- make sure in home dir and lead compromised machine to it![[Screenshot 2024-09-08 at 9.16.30 AM.png]]
+- py server to host exploit![Image](/assets/Screenshot 2024-09-08 at 9.17.08 AM.png)
+- make sure in home dir and lead compromised machine to it![Image](/assets/Screenshot 2024-09-08 at 9.16.30 AM.png)
 - change perms with chmod 777
 - run with ./exploit.sh
 - cat root: 9292487b40387fbc01785055950f3076
