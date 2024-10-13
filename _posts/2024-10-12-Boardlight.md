@@ -3,7 +3,6 @@ title: Boardlight - Hack the Box
 date: 2024-10-13 12:37:45 -0400
 categories: [Hack the Box]
 tags: [Walkthrough]
-image: /assets/Boardlight.png
 ---
 ### Reconnaissance
 
