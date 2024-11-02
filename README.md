@@ -1,2 +1,2 @@
 # Blog
-A site for figuring things out
+The site for figuring things out
