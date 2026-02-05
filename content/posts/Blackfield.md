@@ -3,7 +3,7 @@ title = "HTB - Blackfield"
 date = 2024-09-12
 +++
 
-![Box Image](static/assets/Blackfield.png)
+![Box Image](assets/Blackfield.png)
 
 Blackfield is an extremely smooth box that champions AD research, thorough enumeration, a fair bit of lateral movement, and information transfer techniques. Let's get into it.
 
