@@ -1,9 +1,9 @@
 +++
 title = "HTB - Blackfield"
-date = 2024-09-12
+date = 2024-09-21
 +++
 
-<img alt="Box Image" async src="images/Blackfield.png" width="406px"></img>
+<img alt="Image" async src="images/Blackfield.png" width="800px"></img>
 
 Blackfield is an extremely smooth box that champions AD research, thorough enumeration, a fair bit of lateral movement, and information transfer techniques. Let's get into it.
 
@@ -38,7 +38,7 @@ We can, though, get a hit authenticating as the `null` user with `smbclient`. Ma
 
  `smbclient --list //blackfield.local --no-pass`
  
-![[Screenshot 2024-09-18 at 8.41.47 AM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-18 at 8.41.47 AM.png" width="800px"></img>
 
 I wasn't able to get `smbmap` to list shares properly - I think it's a version issue. I had to manually try to connect to each with `smbclient`. 
 
@@ -46,7 +46,7 @@ I wasn't able to get `smbmap` to list shares properly - I think it's a version i
 
 We've only access to profiles, and upon viewing, we get around 300 users. 
 
-![[Screenshot 2024-09-20 at 11.57.12 AM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-20 at 11.57.12 AM.png" width="800px"></img>
 
 We can save the names to `users.txt`, and clean this up for a file to feed into `kerbrute`. 
 
@@ -56,7 +56,7 @@ We can save the names to `users.txt`, and clean this up for a file to feed into 
 
 `./kerbrute_linux_arm64 userenum -d blackfield.local --dc 10.10.10.192 /home/li0t/Desktop/HTB/Blackfield/user.txt` 
  
-![[Screenshot 2024-09-18 at 9.28.09 AM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-18 at 9.28.09 AM.png" width="800px"></img>
 
 We can see that we've got three hits, `audit2020`, `support`, and  `svc_backup`. I want to iterate that the hashes (at least in my setup) are often always erroneous when dumped by `kerbrute`. We'll need to use `impacket` to certify which users have TGTs and what the values are should they have them.
 
@@ -66,7 +66,7 @@ Through trial and error, `support` is the only account that's valid! Now, we can
 
 `john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt`
 
-![[Screenshot 2024-09-18 at 9.34.22 AM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-18 at 9.34.22 AM.png" width="800px"></img>
 
 We've cracked the password: `#00^BlackKnight`
 
@@ -82,13 +82,13 @@ Because we don't have a shell, and we don't have access to system info, we can t
 
 We can take a look at all of these relationships, but it's very crucial to check all of the queries pertaining to the account we've compromised. In doing so, we figure out that we can change the password for user `audit2020`
 
-![[Screenshot 2024-09-18 at 9.57.27 AM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-18 at 9.57.27 AM.png" width="800px"></img>
 
 To do this, we can  use `impacket` with the `changepasswd` script.
 
 `python3 changepasswd.py -altuser support -altpass "#00^BlackKnight" blackfield.local/audit2020@10.10.10.192 -reset`
 
-![[Screenshot 2024-09-20 at 12.17.41 PM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-20 at 12.17.41 PM.png" width="800px"></img>
 
 Having access to another account, what do we do? You guessed it, reenumerate. Let's start with SMB, again.
 
@@ -100,9 +100,9 @@ With so much content, perusing through the SMB interface can be slow and intensi
 
 `mount -t cifs -o 'username=audit2020,password=password' //blackfield.local/forensic /home/li0t/Desktop/HTB/Blackfield/mnt`
 
-![[Screenshot 2024-09-20 at 12.31.21 PM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-20 at 12.31.21 PM.png" width="800px"></img>
 
-![[Screenshot 2024-09-20 at 12.31.51 PM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-20 at 12.31.51 PM.png" width="800px"></img>
 
 We're privy to a lot here, including information regarding users, groups, admins, firewall rules, and the `lsass` file. This file stands for the `Local Security Authority Subsytem Service`, and it holds the responsibility of enforcing security policies on the system. We can get very valuable information here.
 
@@ -114,7 +114,7 @@ We can discover and dump secrets with a tool called `pypykatz`, a python branch 
 
 The former command will dump secrets, and the latter will format our results into something pleasant, so we can parse for useful information easier.
 
-![[Screenshot 2024-09-20 at 12.36.15 PM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-20 at 12.36.15 PM.png" width="800px"></img>
 
 We get info for a lot of users, including `administrator` and `svc_backup`.
 
@@ -124,7 +124,7 @@ When we try `svc_backup`, using:
 
 `smbclient //10.10.10.192/C$ -U "svc_backup" --pw-nt-hash '9658d1d1dcd9250115e2205d9f48400d'`
 
-![[Screenshot 2024-09-20 at 12.46.20 PM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-20 at 12.46.20 PM.png" width="800px"></img>
 
 We're able to get access! We can peruse or mount the share, but either way, grab the user flag.
 
@@ -134,11 +134,11 @@ We're able to get access! We can peruse or mount the share, but either way, grab
 
 I like to try `evil-winrm` for every user, even though the ports don't telegraph it's operation on this box. It finally works with `svc_backup`.
 
-![[Screenshot 2024-09-20 at 12.49.17 PM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-20 at 12.49.17 PM.png" width="800px"></img>
 
 We find a note in the while rooting around in the base directory.
 
-![[Screenshot 2024-09-18 at 1.15.59 PM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-18 at 1.15.59 PM.png" width="800px"></img>
 
 A bit of housekeeping here. We notice, in the `whoami /all` output and note, the mention of backing up privileges tied to this account. We can confirm with Bloodhound. It's called `SEBackupPrivilege`. In theory, we should then be able to backup data, namely the `SYSTEM`, `SAM`, and `ntds.dit` directories. These are the important files that allow us to get access to critical AD information. Once we back it up, we should be able to transfer the copies to our machine, where we can dump secrets!
 
@@ -183,7 +183,7 @@ Once gotten, use the NT part of the hash to change `evil-winrm` shells:
 
 Flag and profit!
 
-![[Screenshot 2024-09-18 at 2.58.09 PM.png]]
+<img alt="Image" async src="images/Screenshot 2024-09-18 at 2.58.09 PM.png" width="800px"></img>
 
 `ROOT:4375a629c7c67c8e29db269060c955cb`
 
