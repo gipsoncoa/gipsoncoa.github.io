@@ -3,7 +3,7 @@ title = "HTB - Blackfield"
 date = 2024-09-12
 +++
 
-src="images/Blackfield.png"
+<img alt="Box Image" async src="images/Blackfield.png" width="406px"></img>
 
 Blackfield is an extremely smooth box that champions AD research, thorough enumeration, a fair bit of lateral movement, and information transfer techniques. Let's get into it.
 
